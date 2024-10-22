@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+    nginx:
+        image: nginx:latest
+        ports:
+            - "8080:80"
+        volumes:
+            - ./:/var/www
+            - ./docker/default.conf:/etc/nginx/conf.d/default.conf
+
+    mysql:
+        image: mysql:latest
+        ports:
+            - "33060:3306"
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_DATABASE: root
+
+    php:
+        build:
+            context: .
+            dockerfile: ./docker/Dockerfile
+        volumes:
+            - ./:/var/www
+        ports:
+            - "9000:9000"
