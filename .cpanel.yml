@@ -3,7 +3,7 @@
 # Specify the build steps
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/YOUR_C_PANEL_USERNAME/public_html
+    - export DEPLOYPATH=/home/u1463826/public_html
     - echo "Starting deployment..."
 
     # Step 1: Install Composer dependencies
